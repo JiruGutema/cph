@@ -11,4 +11,3 @@ for num in nums:
         diff -= 2*min_num
 print(diff)
 
-print(name)name in the 

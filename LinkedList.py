@@ -3,46 +3,83 @@ class Node:
         self.val = val
         self.next = None
 
-class LinkedList:
-    def __init__(self, initialValue=0):
-        self.head = Node(initialValue)
-        
-    def insertEnd(self, val):
-        newNode = Node(val)
+class MyLinkedList:
+
+    def __init__(self):
+        self.head = None
+
+    def get(self, index: int) -> int:
+        count = 0
         curr = self.head
+    
+        while curr:
+            if count == index:
+                return curr.val
+            curr = curr.next
+            count += 1
+        return -1
         
-        while curr.next is not None:
-            curr = curr.next 
-        curr.next = newNode
-        
-    def insertBeginning(self, val):
+    def addAtHead(self, val: int) -> None:
         newNode = Node(val)
         newNode.next = self.head
         self.head = newNode
-
-    def insertAny(self,position, val):
-        count = 0
-        if not position:
-            self.insertBeginning(val)
-            return 
+        
+    def addAtTail(self, val: int) -> None:
+        newNode = Node(val)
+        if not self.head:
+            self.head = newNode
+            return
+        curr = self.head
+        while curr.next:
+            curr = curr.next
+        curr.next = newNode
+        
+    def addAtIndex(self, index: int, val: int) -> None:
+        if index == 0:
+            self.addAtHead(val)
+            return
         
         curr = self.head
-        while curr != None and count < position-1:
+        count = 0
+        while curr and count < index - 1:
             curr = curr.next
             count += 1
-
+        
+        if not curr:
+            return
+        
         newNode = Node(val)
-        temp = curr.next
+        newNode.next = curr.next
         curr.next = newNode
-        newNode.next = temp
+        
+    def deleteAtIndex(self, index: int) -> None:
+        if not self.head:
+            return
+        
+        if index == 0:
+            self.head = self.head.next
+            return
+        
+        curr = self.head
+        count = 0
+        while curr.next and count < index - 1:
+            curr = curr.next
+            count += 1
+        
+        if not curr.next:
+            return
+        
+        curr.next = curr.next.next
+
 
     def __str__(self):
         curr = self.head
         result = ""
         while curr is not None:
-            result += str(curr.val) + " --> "
+            result += str(curr.val)
+            if curr.next:
+                result += "-->"
             curr = curr.next
-        result += "None"
         return result
 
     def __len__(self):
@@ -53,12 +90,8 @@ class LinkedList:
             count += 1 
         return count
 def helper():
-    linkedlist = LinkedList(100)
-    linkedlist.insertEnd(200)
-    linkedlist.insertBeginning(500)
-    linkedlist.insertAny(0, 700)
-    linkedlist.insertEnd(300)
-    print(linkedlist)   
-    print(len(linkedlist))
+ 
 if __name__ == "__main__":
     helper()
+
+
