@@ -24,3 +24,18 @@ t = int(input())
 for _ in range(t):
     l, r, d, u = map(int, input().split())
     print("Yes" if is_square(l, r, d, u) else "No")
+import sys
+import threading
+
+input_fn = lambda: sys.stdin.readline().strip()
+
+def main():
+    pass  # Your solution here
+
+if __name__ == 'main':
+    sys.setrecursionlimit(1 << 30)
+    threading.stack_size(1 << 27)
+
+    main_thread = threading.Thread(target=main)
+    main_thread.start()
+    main_thread.join()

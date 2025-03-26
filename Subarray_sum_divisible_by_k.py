@@ -1,6 +1,5 @@
 class Solution:
     def subarraysDivByK(self, nums: List[int], k: int) -> int:
-
         dictionary = Counter()
         nums = [0] + nums
         count = 0 
