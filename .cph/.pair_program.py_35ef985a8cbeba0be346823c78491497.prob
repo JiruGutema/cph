@@ -1,0 +1,1 @@
+{"name":"Local: pair_program","url":"/home/jiren/Desktop/Workspace/A2SV/pair_program.py","tests":[{"id":1738668985051,"input":"[1,2,2,1,1,0]","output":"[1,4,2,0,0,0]"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/home/jiren/Desktop/Workspace/A2SV/pair_program.py","group":"local","local":true}

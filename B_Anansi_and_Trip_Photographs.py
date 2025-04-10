@@ -16,7 +16,7 @@ for _ in range(test_cases):
         
         if a2svians[end] - a2svians[middle] < diff:
             flag = ("NO")
-           break
+            break
         middle -= 1
         end -= 1
     print(flag)

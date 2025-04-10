@@ -14,22 +14,7 @@ for _ in range(test_cases):
             min_additional_points.append(max_score - score + 1)
     print(*min_additional_points)
 
+    
 def backtrack(condition):
     if condition == Valid:
         return True
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
